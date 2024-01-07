@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>webChat</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Include Bootstrap CSS from CDN for styling -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <!-- Include Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Include custom styles from style.css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="bg-dark-2 text-light">
+    <!-- Header Jumbotron with application title -->
+    <div class="jumbotron text-center p-4 bg-primary">
+      <h1>WebChat</h1>
+    </div>
+
+    <div class="container appContainer">
+      <div class="row mb-4">
+        <div class="col-sm-8 offset-sm-2">
+          <!-- Card container for messages -->
+          <div class="card messageContainerCard bg-secondary text-light">
+            <!-- Container for displaying messages -->
+            <div
+              class="card-body messagesContainer bg-dark"
+              id="messages"
+            ></div>
+
+            <!-- Footer section with the chat input form -->
+            <div class="card-footer bg-dark">
+              <form id="chatForm">
+                <!-- Container for displaying image preview -->
+                <div class="imagePreviewContainer">
+                  <img class="imagePreview" />
+                  <!-- Close icon for removing the selected image -->
+                  <div class="closeIcon d-flex justify-content-center">
+                    <i class="fas fa-times"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <!-- Textarea for entering messages -->
+                  <textarea
+                    class="form-control bg-dark text-light border-0"
+                    placeholder="Enter your message"
+                    rows="3"
+                    id="messageInput"
+                  ></textarea>
+                </div>
+                <!-- Buttons for attaching images and sending messages -->
+                <div class="d-flex justify-content-end gap10">
+                  <label class="btn btn-success" type="button">
+                    <i class="fa-solid fa-camera"></i>
+                    <!-- Input field for selecting image files -->
+                    <input
+                      type="file"
+                      id="imageInput"
+                      style="display: none"
+                      accept="image/*"
+                    />
+                  </label>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fa-regular fa-paper-plane"></i> Send
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include Socket.IO client library -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Include necessary JavaScript libraries from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include custom JavaScript code from script.js -->
+    <script src="script.js"></script>
+  </body>
+</html>
